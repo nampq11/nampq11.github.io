@@ -3,11 +3,12 @@ project:
   output-dir: docs
 
 website:
-  title: "Nam Pham"
+  title: "PQN"
+  description: "PQN Personal Blog"
   navbar:
     right:
-      - about.qmd
       - index.qmd
+      - about.qmd
       - icon: linkedin
         href: https://www.linkedin.com/in/nampham1106/
       - icon: github
@@ -16,8 +17,25 @@ website:
         href: https://x.com
 format:
   html:
-    theme: cosmo
+    theme: 
+      - united
     css: styles.css
-
+    mainfont: "InterVariable, Inter, sans-serif"
+    highlight-style: github
+    fontsize: 16px
+    linestretch: 1.7
+    linkcolor: "#114b8f"
+    monofont: "Roboto Mono"
+    grid: 
+      body-width: 550px
+    header-includes:
+      <!-- Inter -->
+      <link rel="preconnect" href="https://rsms.me/">
+      <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+      <!-- Roboto Mono -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fronts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+ 
 
 
