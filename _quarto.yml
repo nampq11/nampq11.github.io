@@ -24,7 +24,7 @@ format:
     highlight-style: github
     fontsize: 16px
     linestretch: 1.7
-    linkcolor: "#114b8f"
+    linkcolor: "#2c90e8"
     monofont: "Roboto Mono"
     grid: 
       body-width: 550px
