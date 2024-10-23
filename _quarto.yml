@@ -1,0 +1,23 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Nam Pham"
+  navbar:
+    right:
+      - about.qmd
+      - index.qmd
+      - icon: linkedin
+        href: https://www.linkedin.com/in/nampham1106/
+      - icon: github
+        href: https://github.com/nampq11
+      - icon: twitter-x
+        href: https://x.com
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+
+
+

@@ -1,0 +1,18 @@
+---
+title: "Blog Posts"
+listing:
+  contents: 
+    - posts
+    - projects
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  # we can remove image show here by not including the image in the fields
+  fields: [title, subtitle, date, reading-time, categories]
+page-layout: full
+title-block-banner: true
+---
+
+
