@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Nam Pham</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <p class="hide-when-print">
+          <a class="i18n" onclick="isVi = !isVi; setLang();" data-text-vi="English" data-text-en="Vietnamese">English</a>
+        </p>
+        <div style="padding-bottom: 10px">
+        <h1 class="i18n" onclick="isVi = !isVi; setLang();" data-text-en="Nam Pham" data-text-vi="Phạm Nam">Nam Pham</h1>
+        </div>
+        <p class="hide-when-print">
+          <img src="./assets/img/avatar.jpg" alt="photo" height="120" width="120">
+          <p>contact.nampham.work (at) gmail.com</p>
+        </p>
+        <p class="hide-when-print">
+          [
+          <a href="https://github.com/nampq11" target="_blank">github</a>
+          ] [
+          <a href="https://www.linkedin.com/in/nampham1106/" target="_blank">linkedin</a>
+          ]
+        </p>
+      </header>
+      <section>
+        <p class="show-when-en", style="display: inherit;">I'm an AI Engineer in the areas of Natural Language Processing (NLP), Information Retrieval (IR) and Multimodality. I'm currently working with RAG and AI agents at least 1 years.</p>
+        <h2>Education</h2>
+        <hr>
+        <ul>
+          <li>
+            2020.09 -
+            <span class="i18n" data-text-vi="hiện tại" data-text-en="on-going">on-going</span>
+            , Bachelor of Science in Data Science
+            <a target="_blank" href="https://hus.vnu.edu.vn/">, Hanoi University of Science</a>
+          </li>
+        </ul>
+        <h2>Experience</h2>
+        <hr>
+        <ul>
+          <li>
+            2024.01 -
+            <span class="i18n" data-text-vi="hiện tại" data-text-en="on-going">on-going</span>
+            , AI Engineer
+            <a target="_blank" href="https://bookingcare.vn">, BookingCare company JSC</a>
+          </li>
+          <li>
+            2023.6 - 2023.10
+            , Image Processing intern
+            <a target="_blank" href="https://minerva-pacs.vn/">, VietRad technology company</a>
+          </li>
+        </ul>
+        <h2>Awards</h2>
+        <hr>
+        <ul>
+          <li>
+            2024.05, First prize in Department-level sienctific research competition
+          </li>
+          <li>2023.05, Second prize in Department-level scientific research competition</li>
+        </ul>
+      </section>
+      <footer>
+        <p class="hide-when-short hide-when-print">
+          <small>
+            Hosted on Github Pages.
+            Theme by
+            <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+            .
+          </small>
+        </p>
+        <p class="hide-when-print">
+          <small>
+            Last updated:
+            <span id="last-modified">17/02/2025 23:48:59</span>
+          </small>
+        </p>
+        <p class="hide-when-print hide-when-short">
+          <a href="https://clustrmaps.com/site/lbgmb" title="Visit tracker" target="_blank" rel="noopener noreferrer">
+            <img height="120", width="180" src="https://clustrmaps.com/map_v2.png?cl=080808&w=a&t=m&d=fleR9o1wApYJ8JJG2XLE4uVMtRMHiLPEmlA5LuHIfOM&co=ffffff&ct=808080">
+          </a>
+        </p>
+      </footer>
+    </div>
+    <script language="javascript">
+      document.getElementById("last-modified").innerText = document.lastModified;
+      var lang = navigator.language || navigator.userLanguage;  //获取浏览器的语言
+      var isVi = lang.substr(0, 2) == "vi";  // vi-VN
+      setLang();
+
+      function setLang(){
+          var index = 0;
+          if (isVi) index = 1;
+
+          var displays = ["inherit", "none"];
+          setClassDisplay("show-when-en", displays[index]);
+          setClassDisplay("show-when-vi", displays[1 - index]);
+
+          var key = ["textEn", "textVi"][index];
+          var i18nElements = document.getElementsByClassName("i18n");
+          for (var i = 0; i < i18nElements.length; i++){
+            element = i18nElements[i];
+            if (key in element.dataset)
+              element.innerText = element.dataset[key];
+          }
+          var key = ["hrefEn", "hrefVi"][index];
+          var i18nAs = document.getElementsByClassName("i18n-a");
+          for (var i = 0; i < i18nAs.length; i++){
+            a = i18nAs[i];
+            if (key in a.dataset)
+              a.href = a.dataset[key];
+          }
+      };
+
+      function setClassDisplay(className, value){
+        var elements = document.getElementsByClassName(className);
+        for (var i = 0; i < elements.length; i++)
+            elements[i].style.display = value;
+      };
+    </script>
+    <script src="javascripts/scale.fix.js"></script>
+  </body>
+</html>
