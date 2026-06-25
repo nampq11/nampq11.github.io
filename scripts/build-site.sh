@@ -16,6 +16,8 @@ python3 "$RENDER_INCLUDES" "$SOURCE_DIR/search.html" "$OUTPUT_DIR/search.html" "
 python3 "$RENDER_INCLUDES" "$SOURCE_DIR/cv.html" "$OUTPUT_DIR/cv.html" "$INCLUDES_DIR"
 
 cp "$SOURCE_DIR/rss.xml" "$OUTPUT_DIR/rss.xml"
+cp "$SOURCE_DIR/robots.txt" "$OUTPUT_DIR/robots.txt"
+cp "$SOURCE_DIR/sitemap.xml" "$OUTPUT_DIR/sitemap.xml"
 cp "$SOURCE_DIR/.nojekyll" "$OUTPUT_DIR/.nojekyll"
 cp -a "$SOURCE_DIR/assets" "$OUTPUT_DIR/assets"
 cp -a "$SOURCE_DIR/javascripts" "$OUTPUT_DIR/javascripts"
