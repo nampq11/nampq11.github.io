@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86">
+    <title>Designing an appointment scheduling agent — Nam Pham</title>
+    <meta name="description" content="A simple architecture for tool-calling agents that schedule appointments with validation, logging, and rollback.">
+    <link rel="stylesheet" href="../stylesheets/blog.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="theme-container">
+      <div class="container">
+        <!-- @include header root="../" active="writing" -->
+
+        <main id="main">
+          <article class="post-body">
+            <header class="post-header">
+              <h1>Designing an appointment scheduling agent</h1>
+              <p class="post-meta"><time datetime="2026-06-11">11 Jun 2026</time> · Agents · Automation · Scheduling</p>
+            </header>
+
+            <p>An appointment agent is not just a chatbot that can call an API. It is a stateful workflow that touches real calendars, patient preferences, and business constraints. That means the design needs stronger guardrails than a normal Q&amp;A assistant.</p>
+
+            <h2>The workflow</h2>
+            <p>I prefer to model scheduling as a sequence of explicit states:</p>
+            <ol>
+              <li><strong>Collect:</strong> specialty, location, preferred time, patient details, and constraints.</li>
+              <li><strong>Validate:</strong> confirm required fields and check policy constraints.</li>
+              <li><strong>Search:</strong> query available slots with deterministic tools.</li>
+              <li><strong>Confirm:</strong> show options and ask the user to choose.</li>
+              <li><strong>Commit:</strong> book the slot only after confirmation.</li>
+              <li><strong>Recover:</strong> explain conflicts, expired slots, or missing information.</li>
+            </ol>
+
+            <h2>Where the LLM helps</h2>
+            <p>The model is useful for understanding messy language, summarizing options, and deciding the next state. It should not be the source of truth for availability, pricing, or booking success. Those must come from tools.</p>
+
+            <pre><code>user message → intent/state parser → validator → scheduling API
+                         ↑                 ↓
+                  response composer ← tool result</code></pre>
+
+            <h2>Guardrails worth adding early</h2>
+            <ul>
+              <li>Idempotency keys for booking calls so retries do not double-book.</li>
+              <li>Structured logs for every tool call, validation failure, and user confirmation.</li>
+              <li>A rollback or cancellation path when downstream systems change state unexpectedly.</li>
+              <li>Human handoff when the user asks for medical advice or the scheduling API is uncertain.</li>
+            </ul>
+
+            <div class="note-box">
+              <p><strong>Rule of thumb:</strong> let the LLM choose among safe actions. Do not let it create new actions that the product cannot audit.</p>
+            </div>
+
+            <p>This is the difference between an impressive demo and a dependable assistant: the demo optimizes for fluency, while the production system optimizes for recoverable state transitions.</p>
+          </article>
+
+          <ul class="next-posts" aria-label="More posts">
+            <li><a href="rag-evaluation-loop.html">Read: A practical evaluation loop for RAG assistants →</a></li>
+            <li><a href="../writing/">All writing</a></li>
+          </ul>
+        </main>
+
+        <!-- @include footer root="../" -->
+      </div>
+    </div>
+
+    <script src="../javascripts/theme.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  background: var(--c-background);
+  color: var(--c-text);
+  font-family: 'Merriweather', Georgia, Times, serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+}
+
+body,
+p,
+pre {
+  font-family: 'Merriweather', Georgia, Times, serif;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  font-family: 'Merriweather', Georgia, Times, serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+h1 {
+  margin-bottom: 10px;
+  font-size: 32px;
+  line-height: 42px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  line-height: 34px;
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+p,
+ul,
+ol,
+pre {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+p,
+pre {
+  line-height: 24px;
+}
+
+ul ul {
+  margin-bottom: 0;
+}
+
+li {
+  margin: 0 20px 0 0;
+}
+
+a {
+  color: var(--c-interactive);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--c-interactive-hover);
+  text-decoration: underline;
+}
+
+code {
+  color: #e83e8c;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-size: 95%;
+  word-break: break-word;
+}
+
+pre {
+  display: block;
+  overflow: auto;
+  color: var(--c-text);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre code {
+  color: inherit;
+  font-size: inherit;
+  word-break: normal;
+}
+
+blockquote {
+  margin: 1.5em;
+  border-left: 0.25em solid #e8b500;
+  color: var(--c-muted);
+  padding: 0 0 0 1em;
+}
+
+hr {
+  box-sizing: content-box;
+  overflow: visible;
+  height: 1px;
+  margin: 1rem 0;
+  border: 0;
+  background-color: var(--c-rule);
+  color: var(--c-rule);
+}
+
+img {
+  max-width: 100%;
+  border-style: none;
+  vertical-align: middle;
+}
+
+button,
+input {
+  margin: 0;
+  overflow: visible;
+  font: inherit;
+}
+
+button {
+  appearance: button;
+  border-radius: 0;
+  text-transform: none;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid #00ff00;
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

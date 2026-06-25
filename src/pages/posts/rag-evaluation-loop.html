@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86">
+    <title>A practical evaluation loop for RAG assistants — Nam Pham</title>
+    <meta name="description" content="A lightweight workflow for evaluating retrieval-augmented generation systems before shipping changes.">
+    <link rel="stylesheet" href="../stylesheets/blog.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="theme-container">
+      <div class="container">
+        <!-- @include header root="../" active="writing" -->
+
+        <main id="main">
+          <article class="post-body">
+            <header class="post-header">
+              <h1>A practical evaluation loop for RAG assistants</h1>
+              <p class="post-meta"><time datetime="2026-06-25">25 Jun 2026</time> · RAG · Evaluation · LLM Ops</p>
+            </header>
+
+            <p>Most RAG improvements feel obvious in a demo: add a better embedding model, change chunk size, rerank results, tweak the prompt. The problem is that demos are not distributions. A change that fixes one impressive example can quietly break many boring ones.</p>
+
+            <blockquote>The goal is not to build a perfect benchmark. The goal is to make every retrieval change measurable enough that you can say “this helped” or “this is risky”.</blockquote>
+
+            <h2>The loop</h2>
+            <p>For a production assistant, I like a four-part loop:</p>
+            <ol>
+              <li><strong>Collect real questions.</strong> Start with user questions, support-team questions, and synthetic edge cases that represent known failure modes.</li>
+              <li><strong>Label expected evidence.</strong> For each question, keep the document, paragraph, or URL that should support the answer.</li>
+              <li><strong>Run retrieval separately.</strong> Measure whether the right evidence appears in top-k before involving the LLM.</li>
+              <li><strong>Judge final answers.</strong> Check correctness, groundedness, refusal behavior, and tone against the retrieved context.</li>
+            </ol>
+
+            <div class="note-box">
+              <p><strong>Key distinction:</strong> retrieval quality and answer quality are different bugs. If the right source never appears, prompting will only hide the issue.</p>
+            </div>
+
+            <h2>Metrics that are simple enough to keep</h2>
+            <p>You do not need twenty metrics. I usually start with these:</p>
+            <ul>
+              <li><strong>Recall@k:</strong> did the expected source appear in the top k retrieved chunks?</li>
+              <li><strong>MRR:</strong> how high was the first useful chunk ranked?</li>
+              <li><strong>Grounded answer rate:</strong> did the final answer only use retrieved evidence?</li>
+              <li><strong>Escalation accuracy:</strong> did the assistant refuse or escalate when it should?</li>
+            </ul>
+
+            <h2>A tiny evaluation record</h2>
+            <p>Keep the data shape boring. A JSONL file works well because it is easy to append, diff, and review in pull requests.</p>
+
+            <pre><code>{
+  "id": "faq-042",
+  "question": "Can I book a cardiology appointment on Sunday?",
+  "expected_sources": ["clinic-hours/cardiology"],
+  "must_include": ["available hours", "booking channel"],
+  "must_not_include": ["diagnosis", "medical advice"]
+}</code></pre>
+
+            <h2>How I use it before shipping</h2>
+            <p>Every retrieval experiment should produce a small before/after table. If recall improves but grounded answer rate drops, the change is not ready. If average metrics improve while a critical healthcare path regresses, the change is not ready either.</p>
+
+            <p>The workflow is intentionally lightweight: collect examples, label sources, run retrieval, judge answers, inspect regressions. Repeat until the assistant becomes boring in the best possible way.</p>
+          </article>
+
+          <ul class="next-posts" aria-label="More posts">
+            <li><a href="healthcare-chatbot-lessons.html">Next: What makes healthcare chatbots difficult →</a></li>
+            <li><a href="../writing/">All writing</a></li>
+          </ul>
+        </main>
+
+        <!-- @include footer root="../" -->
+      </div>
+    </div>
+
+    <script src="../javascripts/theme.js" defer></script>
+  </body>
+</html>

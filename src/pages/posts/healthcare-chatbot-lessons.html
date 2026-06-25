@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86">
+    <title>What makes healthcare chatbots difficult — Nam Pham</title>
+    <meta name="description" content="Notes on the hard parts of building healthcare chatbots: trust boundaries, source quality, and escalation paths.">
+    <link rel="stylesheet" href="../stylesheets/blog.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="theme-container">
+      <div class="container">
+        <!-- @include header root="../" active="writing" -->
+
+        <main id="main">
+          <article class="post-body">
+            <header class="post-header">
+              <h1>What makes healthcare chatbots difficult</h1>
+              <p class="post-meta"><time datetime="2026-06-18">18 Jun 2026</time> · Healthcare · RAG · Product</p>
+            </header>
+
+            <p>Healthcare chatbots look simple from the outside: user asks a question, the system searches documents, the model answers. In practice, the most important design decisions are about what the assistant must not do.</p>
+
+            <h2>Three constraints shape the system</h2>
+            <ul>
+              <li><strong>Trust boundaries.</strong> The assistant can explain services, appointment flow, pricing, and clinic logistics. It should not invent diagnosis or replace a doctor.</li>
+              <li><strong>Source quality.</strong> Medical content changes and duplicated pages disagree. Retrieval must prefer approved, recent, and domain-specific sources.</li>
+              <li><strong>Escalation paths.</strong> When confidence is low, the best answer is a safe handoff to staff, not a more confident paragraph.</li>
+            </ul>
+
+            <div class="note-box">
+              <p><strong>Product lesson:</strong> users rarely care whether a failure came from retrieval, prompting, or stale data. They only experience whether the assistant was useful and safe.</p>
+            </div>
+
+            <h2>A simple architecture</h2>
+            <p>The assistant becomes easier to reason about when each stage has one job:</p>
+            <ol>
+              <li>Classify intent and risk level.</li>
+              <li>Retrieve approved sources for that intent.</li>
+              <li>Generate an answer with citations and explicit boundaries.</li>
+              <li>Validate the answer for unsupported claims.</li>
+              <li>Escalate if evidence is missing or risk is high.</li>
+            </ol>
+
+            <h2>What to log</h2>
+            <p>Logs should make debugging possible without exposing unnecessary sensitive information. At minimum, keep the intent, retrieved source IDs, model version, refusal reason, and validation result. These fields turn vague complaints into fixable cases.</p>
+
+            <p>The best healthcare chatbot is not the one that answers everything. It is the one that knows its domain, cites its sources, and hands off cleanly when automation is the wrong tool.</p>
+          </article>
+
+          <ul class="next-posts" aria-label="More posts">
+            <li><a href="appointment-scheduling-agent.html">Next: Designing an appointment scheduling agent →</a></li>
+            <li><a href="../writing/">All writing</a></li>
+          </ul>
+        </main>
+
+        <!-- @include footer root="../" -->
+      </div>
+    </div>
+
+    <script src="../javascripts/theme.js" defer></script>
+  </body>
+</html>

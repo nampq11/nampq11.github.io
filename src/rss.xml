@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nam Pham — AI notes and essays</title>
+    <link>https://nampq11.github.io/</link>
+    <description>Practical notes on NLP, RAG, AI agents, and ML systems.</description>
+    <language>en</language>
+    <atom:link href="https://nampq11.github.io/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A practical evaluation loop for RAG assistants</title>
+      <link>https://nampq11.github.io/posts/rag-evaluation-loop.html</link>
+      <guid>https://nampq11.github.io/posts/rag-evaluation-loop.html</guid>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <description>A lightweight workflow for measuring retrieval quality, answer quality, and regressions before users discover them.</description>
+    </item>
+    <item>
+      <title>What makes healthcare chatbots difficult</title>
+      <link>https://nampq11.github.io/posts/healthcare-chatbot-lessons.html</link>
+      <guid>https://nampq11.github.io/posts/healthcare-chatbot-lessons.html</guid>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Notes on trust boundaries, source quality, and escalation paths for healthcare assistants.</description>
+    </item>
+    <item>
+      <title>Designing an appointment scheduling agent</title>
+      <link>https://nampq11.github.io/posts/appointment-scheduling-agent.html</link>
+      <guid>https://nampq11.github.io/posts/appointment-scheduling-agent.html</guid>
+      <pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate>
+      <description>A simple architecture for tool-calling agents where every action needs validation, logging, and rollback.</description>
+    </item>
+  </channel>
+</rss>

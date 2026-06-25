@@ -1,0 +1,46 @@
+:root {
+  --c-light-text: #333;
+  --c-light-background: #fff;
+  --c-light-muted: #999;
+  --c-light-border: #e5e5e5;
+  --c-light-rule: #d9d9d9;
+  --c-light-interactive: #007bff;
+  --c-light-interactive-hover: #0056b3;
+  --c-light-code: #000;
+  --c-light-input: #e3e3e3;
+  --c-light-callout: #e6f2ff;
+
+  --c-dark-text: #fff;
+  --c-dark-background: #333;
+  --c-dark-muted: #a6a6a6;
+  --c-dark-border: #555;
+  --c-dark-rule: #666;
+  --c-dark-interactive: #66b0ff;
+  --c-dark-code: #fff;
+  --c-dark-input: #666;
+  --c-dark-callout: #004a99;
+
+  --c-text: var(--c-light-text);
+  --c-background: var(--c-light-background);
+  --c-muted: var(--c-light-muted);
+  --c-border: var(--c-light-border);
+  --c-rule: var(--c-light-rule);
+  --c-interactive: var(--c-light-interactive);
+  --c-interactive-hover: var(--c-light-interactive-hover);
+  --c-code: var(--c-light-code);
+  --c-input: var(--c-light-input);
+  --c-callout: var(--c-light-callout);
+}
+
+html.dark-mode {
+  --c-text: var(--c-dark-text);
+  --c-background: var(--c-dark-background);
+  --c-muted: var(--c-dark-muted);
+  --c-border: var(--c-dark-border);
+  --c-rule: var(--c-dark-rule);
+  --c-interactive: var(--c-dark-interactive);
+  --c-interactive-hover: var(--c-dark-text);
+  --c-code: var(--c-dark-code);
+  --c-input: var(--c-dark-input);
+  --c-callout: var(--c-dark-callout);
+}

@@ -1,0 +1,49 @@
+/* Post pages */
+.post-header {
+  margin-bottom: 1.25rem;
+}
+
+.post-header h1 {
+  margin-top: 10px;
+}
+
+.post-meta {
+  margin-bottom: 1rem;
+  color: var(--c-muted);
+  font-family: 'Raleway', Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.post-body p,
+.post-body li {
+  line-height: 1.7;
+}
+
+.post-body h2,
+.post-body h3 {
+  margin-top: 1.5rem;
+}
+
+.note-box {
+  margin: 1.5rem 0;
+  border-left: 0.25em solid var(--c-interactive);
+  background: var(--c-callout);
+  padding: 0.85rem 1rem;
+}
+
+.note-box p:last-child {
+  margin-bottom: 0;
+}
+
+.next-posts {
+  margin-top: 2rem;
+  padding-left: 0;
+  list-style: none;
+  border-top: 1px solid var(--c-border);
+  padding-top: 1rem;
+  font-family: 'Raleway', Helvetica, sans-serif;
+}
+
+.next-posts li {
+  margin: 0 0 0.4rem;
+}

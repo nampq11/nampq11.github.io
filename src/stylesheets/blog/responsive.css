@@ -1,0 +1,65 @@
+@media (min-width: 576px) {
+  .header-brand {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .header-nav {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+
+  .nav {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 575px) {
+  body {
+    font-size: 15px;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .header {
+    margin-bottom: 20px;
+  }
+
+  .header-theme {
+    top: 8px;
+    right: 12px;
+  }
+
+  .subscribe-fields {
+    flex-direction: column;
+  }
+
+  .subscribe-fields button {
+    width: 100%;
+  }
+
+  .about-container {
+    display: block;
+  }
+
+  .about-photo-column,
+  .about-copy {
+    max-width: 100%;
+  }
+
+  .about-avatar {
+    width: 160px;
+    height: 160px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .footer-bio {
+    line-height: 1.8;
+  }
+}
