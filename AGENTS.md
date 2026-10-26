@@ -122,6 +122,7 @@ git status --short
 node --check src/javascripts/theme.js
 node --check src/javascripts/archive-filter.js
 node --check src/javascripts/search.js
+node --check src/javascripts/cv.js
 ./scripts/build-site.sh
 python3 -m http.server 8000 --directory _site
 ```
