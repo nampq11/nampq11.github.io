@@ -83,6 +83,17 @@ a small {
 }
 
 a:hover small { color: #777 }
+.button {
+  display: inline-block;
+  padding: 6px 16px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.button:hover, .button:focus {
+  border-color: #267CB9
+}
 
 img { margin:0 auto }
 
