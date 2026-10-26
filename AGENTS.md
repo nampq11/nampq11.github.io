@@ -34,7 +34,7 @@ This is a static personal website for `nampq11.github.io`, deployed to GitHub Pa
 - `src/javascripts/theme.js` — shared dark-mode behavior.
 - `src/javascripts/archive-filter.js` — shared tag filtering for archives.
 - `src/javascripts/search.js` — search page behavior.
-- `src/javascripts/scale.fix.js` — legacy Minimal theme script.
+- `src/javascripts/cv.js` — CV page behavior: EN/VI language toggle and inline PDF frame gating.
 - `scripts/build-site.sh` — renders includes, copies source pages, and copies shared assets to `_site/`.
 - `scripts/render-includes.py` — tiny dependency-free include renderer for `<!-- @include ... -->` comments.
 - `_site/` — generated deploy output; do not edit or commit.
