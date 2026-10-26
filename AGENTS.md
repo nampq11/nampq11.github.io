@@ -18,7 +18,7 @@ This is a static personal website for `nampq11.github.io`, deployed to GitHub Pa
 - `src/index.html` — homepage, intro, latest writing, projects, footer.
 - `src/search.html` — client-side search page.
 - `src/rss.xml` — RSS feed; update it when adding or changing posts.
-- `src/cv.html` — standalone CV page using the older Minimal theme styles.
+- `src/cv.html` — redirect stub pointing to the resume PDF served at `/cv.pdf`.
 - `src/.nojekyll` — disables Jekyll processing on GitHub Pages.
 - `src/pages/start-here/index.html` — guided entry point to writing, projects, and background.
 - `src/pages/about/index.html` — about page.
@@ -29,12 +29,10 @@ This is a static personal website for `nampq11.github.io`, deployed to GitHub Pa
 - `src/includes/footer.html` — shared footer partial expanded at build time.
 - `src/stylesheets/blog.css` — main blog stylesheet entrypoint.
 - `src/stylesheets/blog/*.css` — modular blog CSS partials.
-- `src/stylesheets/styles.css` and `src/stylesheets/pygment_trac.css` — CV/legacy Minimal theme styles.
 - `src/assets/img/avatar.jpg` — profile image.
 - `src/javascripts/theme.js` — shared dark-mode behavior.
 - `src/javascripts/archive-filter.js` — shared tag filtering for archives.
 - `src/javascripts/search.js` — search page behavior.
-- `src/javascripts/cv.js` — CV page behavior: EN/VI language toggle and inline PDF frame gating.
 - `scripts/build-site.sh` — renders includes, copies source pages, and copies shared assets to `_site/`.
 - `scripts/render-includes.py` — tiny dependency-free include renderer for `<!-- @include ... -->` comments.
 - `_site/` — generated deploy output; do not edit or commit.
@@ -91,7 +89,7 @@ Use dates consistently in both human-readable text and machine-readable attribut
 - Keep color decisions in CSS custom properties under `:root` and `html.dark-mode` when possible.
 - Maintain light/dark mode support. If adding UI elements, verify they are readable in both modes.
 - Keep typography aligned with the existing Merriweather/Raleway style.
-- Do not mix CV styles into blog pages; `src/cv.html` intentionally uses the legacy Minimal theme CSS.
+- The CV is the PDF at `src/cv.pdf`; `src/cv.html` only redirects to it. Do not reintroduce an HTML CV page.
 
 ## JavaScript Conventions
 
@@ -122,7 +120,6 @@ git status --short
 node --check src/javascripts/theme.js
 node --check src/javascripts/archive-filter.js
 node --check src/javascripts/search.js
-node --check src/javascripts/cv.js
 ./scripts/build-site.sh
 python3 -m http.server 8000 --directory _site
 ```
