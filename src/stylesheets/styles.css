@@ -230,6 +230,7 @@ ol li { margin-bottom: 5px }
     font-size: 11pt;
     color: #444
   }
+  .pdf-frame, .button { display: none }
   .hide-when-print { display:none }
   .show-when-print { display:inherit }
 }
